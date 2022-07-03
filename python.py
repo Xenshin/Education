@@ -284,3 +284,50 @@ print(full_name * 3)
 random_string = "this is a random string"
 print('of' in random_string)
 print('random' in random_string)
+
+#CONDITIONAL STATEMENTS
+# A conditional statement is a Boolean expression that, if True, executes a piece of code.
+'''
+There are three types of conditional statements in python:
+1.) if 
+2.) if-else
+3.) if-elif-else
+'''
+# IF
+num = 5
+if num == 5:
+    print("the number is equal to 5")
+
+if num>5:
+    print("the number is greater than 5")
+
+# IF - Else
+num = 60
+output = "the number is less than or equal to 50"\
+    if num <= 50 else "the number is greater than 50"
+
+print(output)
+
+#alternatively
+if num <= 50:
+    print("the number is less than or equal to 50")
+else:
+    print("the number is greater than 50")
+
+# if-elif-else
+num = 5
+if num == 0:
+    print("zero")
+elif num == 1:
+    print("one")
+elif num == 2:
+    print("two")
+elif num == 3:
+    print("three")
+elif num == 4:
+    print("four")
+elif num == 5:
+    print("five")
+elif num == 6:
+    print("six")
+
