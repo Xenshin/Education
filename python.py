@@ -331,3 +331,186 @@ elif num == 5:
 elif num == 6:
     print("six")
 
+###########################################################   FUNCTIONS  ############################################################################################
+
+'A function is a reusable set of operations'
+# min() function:
+minimun = min(10,40)
+print(minimun)
+minimum = min("batman", "superman") # it works with different data types
+print(minimum)
+minimum = min(19,34,56,42,4654) # it even works with multiple arguments
+print(minimum)
+
+'''types of functions:
+1.) Built in function
+2.) user defined function'''
+
+# Syntax:
+'def function_name (parameters):'
+
+def my_print_funtion(): # No parameters
+    print("this")
+    print("is")
+    print("A")
+    print("function")
+    #function ended
+
+#calling the function in the program multiple times
+my_print_funtion()
+my_print_funtion()
+
+# defining the min function
+def minimum(first, second): # here we have passed the arguments in the parenthesis
+    if (first < second):
+        print(first)
+    else:
+        print(second)
+
+minimum(45, 10)
+
+# the 'return' statement
+def minimum(first, second):
+    if (first<second):
+        return first
+    return second
+
+print(minimum(23, 34))
+
+# ALTERING DATA
+'''When mutable data is passed to a function, the function can modify or alter it. these modifications will stay
+in effect outside the function scope as well. An example of mutable data is a list.
+
+In the case of immutable data, the function can modify it, but the data will remain unchanged outside the function's
+scope. Example of immutable data are numbers, strings, etc..'''
+
+# mutable data
+num = 20
+
+
+def multiply_by_10(n):
+    n *= 10
+    num = n  # Changing the value inside the function
+    print("Value of num inside function:", num)
+    return n
+
+
+multiply_by_10(num)
+print("Value of num outside function:", num)  # The original value remains unchanged
+
+# immutable data
+num_list = [10, 20, 30, 40]
+print(num_list)
+
+
+def multiply_by_10(my_list):
+    my_list[0] *= 10
+    my_list[1] *= 10
+    my_list[2] *= 10
+    my_list[3] *= 10
+
+
+multiply_by_10(num_list)
+print(num_list)  # The contents of the list have been changed
+
+'Functions that are properties of a particular entity are known as methods. these methods can be accessed using the . operator'
+
+# BUILT IN STRING FUNCTION
+# Search
+'find() method'
+'It returns the first index at which a substring occurs in a string. If no instance of the substring is found, the method returns -1'
+#syntax
+'a_string.find(substring, start, end)'
+
+random_string = "this is a string"
+print(random_string.find('is'))
+print(random_string.find('is',9,13)) # no instance of 'is' in this range
+
+# replace
+'the replace() method can be used to replace a part of a string with another string'
+# syntax
+'a_string.replace(substring_to_be_replaced, new_string)'
+
+a_string = "welcome to Shiv Nadar University"
+new_string = a_string.replace("welcome to", "Greetings from")
+print(a_string)
+print(new_string)
+
+# Changing the Letter Case
+print("UpperCase".upper())
+print("LowerCase".lower())
+
+# Joining Strings
+my_list = ['a','b','c']
+print('>>'.join(my_list)) #joining strings with >>
+print('<<'.join(my_list)) #joining strings with <<
+print(', '.join(my_list)) #joining strings with comma and space
+
+# formatting
+'The format() method can be used to format the specified value(s) and insert them in strings placeholder(s).'
+string1 = "learn python {version} at {cname}".format(version=3, cname="github")
+string2 = "learn python {0} at {1}".format(3,"github")
+string3 = "learn python {} at {}".format(3, "github")
+
+print(string1)
+print(string2)
+print(string3)
+
+#LAMBDA
+'A lambda is an anonymous function that returns some form of data'
+'Lambdas are defined using the lambda keyword'
+#syntax
+'lambda parameters : expression'
+triple = lambda num : num*3
+print(triple(10))
+
+concat_strings = lambda a,b,c : a[0]+b[0]+c[0] # lambda returns data, so it is a good practice to assign them to a variable
+print(concat_strings("aryan", "Tiwari", "aman"))
+
+my_func = lambda num : "high" if num > 50 else "low" # we can also use conditional statements within lambdas
+print(my_func(67)) # while using conditional statement it is necessary to have if-else pair. Both cases need to be covered
+
+# map() function:
+'Creates a map object using an existing list and a function as its parameters'
+single_list = [0,1,2,3,4,5]
+double_list = map(lambda n : n*2, single_list)
+print(list(double_list)) # we again use list to convert the result into a list
+print(single_list) # original list remains unchanged
+
+# filter() function:
+'It filters out all the elements from a list if the elements satisfy the condition that is specified in the argument function'
+numlist = [30,2,-15,17,9,100]
+greater_than_10 = filter(lambda n : n>10, numlist)
+print(list(greater_than_10))
+
+# RECURSION:
+'''It is the process in which a function calls itself during its execution. Each recursive call takes program one scope deeper
+into the function.
+
+The recursive calls stop at the BASE CASE. The base case is a check used to indicate that there should be no further recursion'''
+#function which decrements a number recursively until the number becomes 0:
+def rec_count(number):
+    print(number)
+    # base case
+    if (number == 0):
+        return 0
+    rec_count(number - 1) # A recursive call with a different argument
+    print(number)
+
+rec_count(6) # one thing to notice is that an outer call cannot move forward until all the inner recursive calls have finished.
+
+# fibonacce sequence:
+'its a sequence where every number is the sum of the two numbers before it. The first two terms in the series are 0 and 1'
+def fib(n):
+    #the base cases
+    if n<=1: # first number in the sequence
+        return 0
+    elif n==2: #second number in the sequence
+        return 1
+    else:
+        #recursive call
+        return fib(n-1) + fib(n-2)
+
+print(fib(6))
+
+
